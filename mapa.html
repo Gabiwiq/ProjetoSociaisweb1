@@ -1,50 +1,65 @@
+<!DOCTYPE html>
 <html lang="pt-BR">
-   <meta charset="UTF-8">
-   <head>
-      <link rel="stylesheet" type="text/css" href="../css/style.css">
-      <title>Doações</title>
-      <header>
-         <h1 class="titulo">Confira ONGs que aceitam doações</h1>
-         <h2 class="titulo">Perto de você</h2>
-      </header>
-   </head>
-   <div class="menu-btn" onclick="toggleMenu()">☰</div>
-   <nav class="barralateral" id="menuLateral">
-      <div class="menu-header">
-         <img src="../imgs/logo.png" class="logo-menu" alt="Logo SONGs">
-      </div>
-      <ul>
-         <li><a href="index.html">Página inicial</a></li>
-         <li><a href="galeria.html">Galeria</a></li>
-         <li><a href="instagram.html">Informações</a></li>
-         <li><a href="mapa.html">Mapa</a></li>
-         <li><a href="impacto.html">Impacto Social</a></li>
-      </ul>
-   </nav>
-   <body class="fade-in">
-      <box id="centro">
-         <form id="busca-maps">
-            <label>Estado:</label>
-            <input type="text" name="estado" required><br>
-            <label>Cidade:</label>
-            <input type="text" name="cidade" required><br>
-            <label>Bairro:</label>
-            <input type="text" name="bairro" required><br>
-            <button type="submit">Enviar</button>
-         </form>
-         <script> //js
-            document.getElementById('busca-maps').addEventListener('submit', function(e) {
-                e.preventDefault();
-                const bairro = encodeURIComponent(this.bairro.value);
-                const cidade = encodeURIComponent(this.cidade.value);
-                const estado = encodeURIComponent(this.estado.value);
-                const url = `https://www.google.com/maps/search/Ong+${bairro}+${cidade}+${estado}`;
-                window.open(url, '_blank');
-            });
-                 function toggleMenu() {
-                     document.getElementById("menuLateral").classList.toggle("open");
-                 }
-         </script>
-   </body>
-   </box>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doações</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="fade-in">
+
+<div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+<nav class="barralateral" id="menuLateral">
+    <div class="menu-header">
+        <img src="logo.png" class="logo-menu">
+        <h2 class="menu-title">Songs</h2>
+    </div>
+
+    <ul>
+        <li><a href="index.html">Página inicial</a></li>
+        <li><a href="galeria.html">Galeria</a></li>
+        <li><a href="instagram.html">Informações</a></li>
+        <li><a href="mapa.html">Mapa</a></li>
+        <li><a href="impacto.html">Impacto Social</a></li>
+    </ul>
+</nav>
+
+<header>
+    <h1 class="titulo">Confira ONGs que aceitam doações</h1>
+    <h2 class="titulo">Perto de você</h2>
+</header>
+
+<div id="centro">
+    <form id="busca-maps">
+        <label>Estado:</label>
+        <input type="text" name="estado" required>
+
+        <label>Cidade:</label>
+        <input type="text" name="cidade" required>
+
+        <label>Bairro:</label>
+        <input type="text" name="bairro" required>
+
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menuLateral").classList.toggle("open");
+}
+
+document.getElementById('busca-maps').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const bairro = encodeURIComponent(this.bairro.value);
+    const cidade = encodeURIComponent(this.cidade.value);
+    const estado = encodeURIComponent(this.estado.value);
+    const url = `https://www.google.com/maps/search/Ong+${bairro}+${cidade}+${estado}`;
+    window.open(url, '_blank');
+});
+</script>
+
+</body>
 </html>
