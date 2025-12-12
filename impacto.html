@@ -1,0 +1,77 @@
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Impacto Social</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<header>
+    <h1 class="tituloprincipal">O que as ONGs enfrentam?</h1>
+</header>
+
+<body>
+    <div class="menu-btn" onclick="toggleMenu()">☰</div>
+            <nav class="barralateral" id="menuLateral">
+                <div class="menu-header">
+                <img src="logo.png" class="logo-menu" alt="Logo SONGs">
+            </div>
+                   <ul>
+                     <li><a href="index.html">Página inicial</a></li>
+                     <li><a href="galeria.html">Galeria</a></li>
+                     <li><a href="instagram.html">Informações</a></li>
+                     <li><a href="mapa.html">Mapa</a></li>
+                     <li><a href="impacto.html">Impacto Social</a></li>
+                   </ul>
+        </nav>
+    <div class="fade-in">
+        <h2>Desafios, soluções e iniciativas</h2>
+        <p>
+            As ONGs enfrentam diversos desafios para alcançar seus objetivos sociais.
+        </p>
+
+        <button onclick="mostrarDados()">Ver dados</button>
+
+        <p id="dados" style="margin-top:15px; font-weight:bold;"></p>
+    </div>
+
+    <script>
+        function mostrarDados() {
+            const dados = [
+                "Desafios",
+                "- Invisibilidade/ baixa visibilidade;",
+                "- Poucos investimentos e captação financeira;",
+                "- Dificuldade de encontrar gerencias que são constantes;",
+                "- Dificuldade em comunicar o impacto da ONG e manter a transparência com doadores e a comunidade.",
+                "Soluções e Iniciativas",
+                "- Engajamento da comunidade;",
+                "- Desenvolvimento de habilidades;",
+                "- Transparência e prestação de contas;",
+                "- Avaliação de impacto;",
+                "- Networking."
+            ];
+
+            let i = 0;
+            const campo = document.getElementById("dados");
+            campo.innerHTML = "";
+
+            const intervalo = setInterval(() => {
+                campo.innerHTML += dados[i] + "<br>";
+                i++;
+                if (i === dados.length) clearInterval(intervalo);
+            }, 800);
+        }
+         function toggleMenu() {
+                document.getElementById("menuLateral").classList.toggle("open");
+            }
+    </script>
+    <div class="final">
+            <h2>Contato/participe</h2>
+            <p>Para entrar em contato conosco e adicionar sua ONG, contate o número a seguir: +55 31 98303-2331.
+            </p>
+
+        <footer>
+             <p>Amanda; Gabriela; Info1-T1</p>
+        </footer>
+         </div>
+</body>
+</html>
