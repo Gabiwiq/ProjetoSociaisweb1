@@ -1,49 +1,65 @@
 <html lang="pt-BR">
-    <meta charset="UTF-8">
-    <head>
-        <link rel="stylesheet" type="text/css" href="style.css">
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-        <title> Galeria </title>
-</head>
-<header>
-    <img class="logo" src="logo.png" alt="Logo SONGs" width="150" height="150">
-     <nav class="barralateral">
-            <ul>
-                <li><a href="index.html">Página inicial</a></li>
-                <li><a href="mapa.html">Mapa </a></li>
-                <li><a href="instagram.html">Informações</a></li>
-            </ul>
-        </nav>
-    <h1 class="tituloprincipal">Galeria de fotos das ONGs promovidas</h1>
-</header>
-<h1>1000 Sorrisos</h1>
-<img src ="ms.png" alt="1000 Sorrisos" width="300" height="200">
-<img src ="ms2.jpeg" alt="1000 Sorrisos" width="300" height="200">
-<img src ="ms3.jpeg" alt="1000 Sorrisos" width="300" height="200">
-<img src ="ms4.jpeg" alt="1000 Sorrisos" width="300" height="200">
-<h1>2 pães e 1 pingado</h1>
-<img src ="2pep.png" alt="2 pães e 1 pingado" width="300" height="200">
-<img src ="2pep1.jpeg" alt="2 pães e 1 pingado" width="300" height="200">
-<img src ="2pep3.jpeg" alt="2 pães e 1 pingado" width="300" height="200">
-<img src ="2pep4.jpeg" alt="2 pães e 1 pingado" width="300" height="200">
-<h1>Instituto NutriBrasil</h1>
-<img src ="nb.jpeg" alt="Instituto NutriBrasil" width="300" height="200">
-<img src ="nb2.jpeg" alt="Instituto NutriBrasil" width="300" height="200">
-<img src ="nb3.jpeg" alt="Instituto NutriBrasil" width="300" height="200">
-<img src ="nb1.jpeg" alt="Instituto NutriBrasil" width="300" height="200">
-<h1>Comida que Abraça</h1>
-<img src ="ca.jpeg" alt="Comida que Abraça" width="300" height="200">
-<img src ="ca2.jpeg" alt="Comida que Abraça" width="300" height="200">
-<img src ="ca3.jpeg" alt="Comida que Abraça" width="300" height="200">
-<img src ="ca1.jpeg" alt="Comida que Abraça" width="300" height="200">
-<h1>Café Solidário Floresta</h1>
-<img src ="csf.jpeg" alt="Café Solidário Floresta" width="300" height="200">
-<img src ="csf1.jpeg" alt="Café Solidário Floresta" width="300" height="200">
-<img src ="csf2.jpeg" alt="Café Solidário Floresta" width="300" height="200">
-<img src ="csf3.jpeg" alt="Café Solidário Floresta" width="300" height="200">
-<h1>Pulsar Volutariado</h1>
-<img src ="pv.jpeg" alt="Pulsar Volutariado" width="300" height="200">
-<img src ="pv1.jpeg" alt="Pulsar Volutariado" width="300" height="200">
-<img src ="pv2.jpeg" alt="Pulsar Volutariado" width="300" height="200">
-<img src ="pv3.jpeg" alt="Pulsar Volutariado" width="300" height="200">
+   <meta charset="UTF-8">
+   <head>
+      <link rel="stylesheet" type="text/css" href="../css/style.css">
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title> Galeria </title>
+   </head>
+   <header>
+      <h1 class="tituloprincipal">Galeria de fotos das ONGs promovidas</h1>
+   </header>
+   <body class="fade-in">
+      <div class="menu-btn" onclick="toggleMenu()">☰</div>
+      <nav class="barralateral" id="menuLateral">
+         <div class="menu-header">
+            <img src="../imgs/logo.png" class="logo-menu" alt="Logo SONGs">
+         </div>
+         <ul>
+            <li><a href="index.html">Página inicial</a></li>
+            <li><a href="galeria.html">Galeria</a></li>
+            <li><a href="instagram.html">Informações</a></li>
+            <li><a href="mapa.html">Mapa</a></li>
+            <li><a href="impacto.html">Impacto Social</a></li>
+         </ul>
+      </nav>
+      <div class="gallery-container">
+         <span class="arrow left",  onclick="prev()"> ❮ </span>
+         <img id="gallery" class="gallery-img" src="../imgs/ms.png">
+         <span class="arrow right" onclick="next()"> ❯ </span>
+      </div>
+      <script>
+         const fotos = ["../imgs/ms.png", "../imgs/ms2.jpeg", "../imgs/ms3.jpeg", "../imgs/ms4.jpeg",
+                        "../imgs/2pep.png", "../imgs/2pep1.jpeg", "../imgs/2pep3.jpeg", "../imgs/2pep4.jpeg",
+                        "../imgs/nb.jpeg", "../imgs/nb2.jpeg", "../imgs/nb3.jpeg", "../imgs/nb1.jpeg",
+                        "../imgs/ca.jpeg", "../imgs/ca2.jpeg", "../imgs/ca3.jpeg", "../imgs/ca1.jpeg",
+                        "../imgs/csf.jpeg", "../imgs/csf1.jpeg", "../imgs/csf2.jpeg", "../imgs/csf3.jpeg",
+                        "../imgs/pv.jpeg", "../imgs/pv1.jpeg", "../imgs/pv2.jpeg", "../imgs/pv3.jpeg"];
+         let index = 0;
+         function toggleMenu() {
+                 document.getElementById("menuLateral").classList.toggle("open");
+             }
+         function update() {
+             document.getElementById("gallery").src = fotos[index];
+         }
+         
+         function next() {
+             index = (index + 1) % fotos.length;
+             update();
+         }
+         
+         function prev() {
+             index = (index - 1 + fotos.length) % fotos.length;
+             update();
+         }
+      </script>
+      <div class="final">
+         <h2>Contato/participe</h2>
+         <p>Para entrar em contato conosco e adicionar sua ONG, contate o número a seguir: +55 31 98303-2331.
+         </p>
+         <footer>
+            <p>Amanda; Gabriela; Info1-T1</p>
+         </footer>
+      </div>
+   </body>
+</html>
