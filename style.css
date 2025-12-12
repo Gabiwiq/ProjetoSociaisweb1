@@ -4,6 +4,7 @@ body {
     color: #333;
     padding: 20px;
     text-align: justify;
+    margin-left: 240px;
   }
 mark {
   background-color: #fff3b0;
@@ -26,23 +27,68 @@ img {
  text-align: center;
  font-weight: bold;
 }
+/* MENU LATERAL RETRÁTIL */
 .barralateral {
-  width: 200px;
-  background-color: rgba(0, 88, 202, 0.212);
-  padding: 15px;
-  border-radius: 8px;
-  margin-bottom: 20px;
-  float: unset;
-  }
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 230px;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.35);
+    backdrop-filter: blur(12px);
+    padding-top: 80px;
+    box-shadow: 4px 0 12px rgba(0,0,0,0.25);
+    transform: translateX(-230px);
+    transition: 0.3s;
+    z-index: 999;
+}
+
+.barralateral.open {
+    transform: translateX(0);
+}
+
+.barralateral ul {
+    padding: 0;
+    list-style: none;
+}
+
+.barralateral li {
+    margin: 2px 0;
+}
+
+.barralateral a {
+    display: block;
+    padding: 12px 25px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #003b6f;
+    text-decoration: none;
+}
+
+.barralateral a:hover {
+    background: #008cff;
+    color: white;
+}
+
+/* BOTÃO DO MENU */
+.menu-btn {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    font-size: 30px;
+    background: white;
+    padding: 8px 13px;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
 
 .grifado {
   background-color: #7916ca5e;
   border-radius: 2px;
 }
-.logo {
-  display: block;
-  margin: 0px 20px auto 20px;
-}
+
 .fraseefeito {
   text-align: left;
   font-style: italic;
@@ -69,4 +115,64 @@ a:hover {
   align-items: center;
   margin-top: 50px;
   margin-bottom: 20px;
+}
+
+.gallery-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 50px auto;
+    position: relative;
+    text-align: center;
+}
+
+.gallery-img {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px #00000050;
+}
+
+.arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #ffffffcc;
+    padding: 10px 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 25px;
+    user-select: none;
+    box-shadow: 0 4px 10px #00000050;
+}
+
+.left {
+    left: -40px;
+}
+
+.right {
+    right: -40px;
+}
+
+.arrow:hover {
+    background: #d4f1ff;
+}
+
+
+.fade-in {
+    animation: fade 1s ease forwards;
+    opacity: 0;
+}
+
+@keyframes fade {
+    to { opacity: 1; }
+}
+
+.menu-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.logo-menu {
+    width: 120px;
+    margin-bottom: 10px;
 }
